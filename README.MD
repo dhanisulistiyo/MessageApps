@@ -13,7 +13,7 @@ query Message {
   }
 }
 
--for create message use syntax:
+- for create message use syntax:
 mutation CreateMessage($input: CreateMessageInput!) {
   createMessage(input: $input) {
     id
@@ -30,7 +30,7 @@ mutation CreateMessage($input: CreateMessageInput!) {
 }
 - note ID cannot be same.
 
--for websocket use syntax (still error):
+- for websocket use syntax (still error):
 subscription {
   messageAdd {
     id
