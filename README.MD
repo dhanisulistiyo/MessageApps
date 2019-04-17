@@ -2,6 +2,7 @@
 
 
 How to run:
+- npm install
 - npm run dev
 - go to link http://localhost:3500/graphql in browser
 - for get list all message use syntax:
@@ -11,6 +12,7 @@ query Message {
     message
   }
 }
+
 -for create message use syntax:
 mutation CreateMessage($input: CreateMessageInput!) {
   createMessage(input: $input) {
@@ -18,6 +20,7 @@ mutation CreateMessage($input: CreateMessageInput!) {
     message 
   }
 }
+
 - and query varible:
 {
   "input": {
