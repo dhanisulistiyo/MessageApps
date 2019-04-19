@@ -1,7 +1,9 @@
+import { gql } from 'apollo-server-express'
+import { PubSub } from 'graphql-subscriptions';
 import messageRoute from '../routers/message'
-import { gql, PubSub } from 'apollo-server-express'
 
-const pubsub = new PubSub();
+
+export const pubsub = new PubSub();
 const MESSAGE_ADDED = 'MESSAGE_ADDED';
 const message = [];
 
@@ -25,14 +27,14 @@ export const typeDefs = gql`
   }
 
   type Subscription {
-    messageAdd: [Message]
+    messageAdd: Message
   }
 `
 
 export const resolvers = {
     Subscription: {
       messageAdd: {
-        subscribe: () => pubsub.asyncIterator([MESSAGE_ADDED]),
+        subscribe: () => pubsub.asyncIterator(MESSAGE_ADDED),
       },
     },
     Query: {
@@ -43,7 +45,7 @@ export const resolvers = {
     Mutation: {
         createMessage(source, args) {
           message.push(args.input)
-          pubsub.publish(MESSAGE_ADDED, { messageAdd: message });
+          pubsub.publish(MESSAGE_ADDED, { messageAdd: args.input });
           return messageRoute.create(args.input)
         }
       }
