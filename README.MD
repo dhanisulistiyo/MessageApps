@@ -31,7 +31,7 @@ How to run:
 (note: ID cannot be same.)
 
 
-- for websocket use syntax (still error):
+- for websocket use syntax:
 " subscription {
   messageAdd {
     id
