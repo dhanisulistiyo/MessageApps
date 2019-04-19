@@ -27,8 +27,9 @@ mutation CreateMessage($input: CreateMessageInput!) {
     "id": 2,
     "message": "test"
   }
-}
-- note ID cannot be same.
+} 
+(note: ID cannot be same.)
+
 
 - for websocket use syntax (still error):
 subscription {
@@ -37,4 +38,5 @@ subscription {
     message
   }
 }
+(note: run this first and create message for show result)
 
