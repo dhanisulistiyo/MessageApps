@@ -3,9 +3,7 @@ import { ApolloServer } from 'apollo-server-express'
 import http from 'http';
 import { resolvers, typeDefs } from './schema/message'
 
-
 const PORT = process.env.PORT || 3500
-const PORTWS = process.env.PORT || 3501
 const app = express()
 
 const server = new ApolloServer({
@@ -22,7 +20,7 @@ app.get('/', (req, res) => {
   res.send({ hello: 'This Apps' })
 })
 
-app.listen(PORT, () =>{
+httpServer.listen(PORT, () =>{
   console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`)
   console.log(`🚀 Subscriptions ready at ws://localhost:${PORT}${server.subscriptionsPath}`)
 })
